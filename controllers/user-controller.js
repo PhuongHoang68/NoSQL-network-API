@@ -1,4 +1,4 @@
-const { User }  = require("../models");
+const { User, Thought }  = require("../models");
 
 const userController = {
     //get all Users
@@ -14,8 +14,17 @@ const userController = {
     //get one User by ID
     getUserById({ params }, res) {
         User.findOne({ _id: params.id })
+        .populate([{
+            path: "thoughts",
+            select: "-__v"
+        }, {
+            path: "friends",
+            select: "-__v"
+
+    }])
+        .select("-__v")
         .then(dbUserData => {
-        // If no pizza is found, send 404
+        // If no user is found, send 404
         if (!dbUserData) {
             res.status(404).json({ message: 'No user found with this id!' });
             return;
@@ -29,6 +38,7 @@ const userController = {
     },
     //create user
     createUser({body}, res) {
+        console.log(body);
         User.create(body) 
         .then(dbUserData => res.json(dbUserData))
         .catch(err => res.status(400).json(err));

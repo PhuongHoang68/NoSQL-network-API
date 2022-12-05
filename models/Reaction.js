@@ -1,6 +1,5 @@
 const { Schema, model } = require("mongoose");
-const moment = require("moment");
-
+const { moment } = require("moment")
 const ReactionSchema = new Schema({
     reactionId :{
         type: Schema.Types.ObjectId,
@@ -16,14 +15,20 @@ const ReactionSchema = new Schema({
     },
     username: [{
         type: Schema.Types.ObjectId,
-        ref: "Thought"
+        ref: "User"
 }],
     createdAt: [{
         type: Date,
-        default: Date.now
+        default: Date.now,
+        get: timeSince => moment(timeSince).format("MMM DD, YYYY [at] hh:mm a")
     }]
+},{
+    toJSON: {
+        getters: true
+    }
 })
 
 const Reaction = model("Reaction", ReactionSchema);
+console.log(Reaction.prototype);
 
 module.exports = Reaction;
