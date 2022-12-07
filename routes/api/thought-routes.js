@@ -10,13 +10,13 @@ const {
 
 //GET all and POST new at api/thoughts
 router
-.route("/thoughts")
+.route("/")
 .get(getAllThought)
 .post(createThought);
 
 //GET one, PUT one, DELETE at api/thoughts/:id
 router
-.route("/thoughts/:id")
+.route("/:id")
 .get(getThoughtById)
 .put(updateThought)
 .delete(deleteThought);
