@@ -1,5 +1,8 @@
 const { Thought, User }  = require("../models");
 
+//POST thought works but response shows as null, even tho everything populates
+//friend routes and reaction routes
+
 const thoughtController = {
     //get all Thoughts
     getAllThought(req, res) {
@@ -54,9 +57,9 @@ const thoughtController = {
             if(!dbThoughtData) {
                 res.status(404).json({ message: "No thought found with this Id!"});
                 return;
-            } else {
+            } 
                 res.json(dbThoughtData);
-            }
+            
         })
         .catch(err => 
             res.status(400).json(err)
@@ -77,7 +80,8 @@ const thoughtController = {
         }
         res.json(dbThoughtData)
     })
-    .catch(err => res.json(err));
+    .catch(err => 
+        res.status(400).json(err));
     },
 
     //delete reactions
@@ -95,7 +99,8 @@ const thoughtController = {
             res.json(dbThoughtData)
         }
             )
-        .catch(err => res.json(err));
+        .catch(err => 
+            res.status(400).json(err));
     },
 
     //deleting thought
