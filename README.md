@@ -10,6 +10,10 @@ Express.js for routing, MongoDB database, and Mongoose ODM.
 
 
 ## How to use:
-Once you have it locally, run "npm i" in the command-line followed by "npm start". The API routes will be up for testing in Insomnia then
+Once you have it locally, run "npm i" in the command-line, followed by "npm start". The API routes will be up for testing in Insomnia then
+
+## Built by:
+Phuong Hoang. Contact me @p.hoang6897@yahoo.com
+
 
 

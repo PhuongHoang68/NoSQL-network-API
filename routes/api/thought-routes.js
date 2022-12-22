@@ -28,7 +28,7 @@ router
 
 router
 .route("/:id/reactions")
-.put(addReaction)
+.post(addReaction)
 
 router
 .route("/:id/reactions/:reactionId")
