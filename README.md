@@ -6,6 +6,14 @@ APIs databse built for a social network app, where users can share their thought
 ## Technologies used: 
 Express.js for routing, MongoDB database, and Mongoose ODM.
 
+## User Story
+AS A social media startup   
+
+I WANT an API for my social network that uses a NoSQL database. 
+
+SO THAT my website can handle large amounts of unstructured data. 
+
+
 ## Screen-recording of how it works:
 [NoSQLapi.webm](https://user-images.githubusercontent.com/109717048/209239711-f55d91dc-bfc7-4818-a646-8443feb55d28.webm)
 
